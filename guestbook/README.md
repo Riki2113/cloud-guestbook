@@ -69,7 +69,7 @@ guestbook/
 ### Langkah 1: Clone & install
 
 ```bash
-git clone https://github.com/USERNAME/cloud-guestbook.git
+git clone https://github.com/Riki2113/cloud-guestbook.git
 cd cloud-guestbook
 npm install
 ```
