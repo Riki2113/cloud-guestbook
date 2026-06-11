@@ -76,7 +76,7 @@ jobs:
       - name: Deploy ke Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up --detach
+        run: railway up --detach --service cloud-guestbook
 
       - name: Notifikasi deploy berhasil
         run: |
