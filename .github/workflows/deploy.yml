@@ -70,13 +70,11 @@ jobs:
       - name: Checkout kode
         uses: actions/checkout@v4
 
-      - name: Install Railway CLI
-        run: npm install -g @railway/cli
-
       - name: Deploy ke Railway
+        uses: berviantoleo/railway-deploy@main
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up --detach --service cloud-guestbook
+          SERVICE: cloud-guestbook
 
       - name: Notifikasi deploy berhasil
         run: |
