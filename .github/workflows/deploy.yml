@@ -60,6 +60,7 @@ jobs:
         run: echo "✅ Docker image berhasil di-build!"
 
   # ── Job 3: Deploy ke Railway ──────────────────────────────
+  # ── Job 3: Deploy ke Railway ──────────────────────────────
   deploy:
     name: Deploy ke Railway
     runs-on: ubuntu-latest
@@ -70,11 +71,13 @@ jobs:
       - name: Checkout kode
         uses: actions/checkout@v4
 
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
       - name: Deploy ke Railway
-        uses: berviantoleo/railway-deploy@main
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-          SERVICE: cloud-guestbook
+        run: railway up --detach --project f7d2e4af-af8b-4d08-896f-6cb393e989dd --service cloud-guestbook
 
       - name: Notifikasi deploy berhasil
         run: |
